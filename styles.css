@@ -1,8 +1,19 @@
 body {
-    background-color: black;
-  }
+  background-color: black;
+}
 
 h1 {
-    color: aqua;
-    text-align: center;
+  color: rgb(255, 0, 140);
+}
+
+input,
+h1,
+.song_bpm_div,
+.sample_bpm_div,
+.run_it_button {
+  text-align: center;
+}
+
+.run_it_button {
+  padding-top: 20px;
 }
