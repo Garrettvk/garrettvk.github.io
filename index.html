@@ -3,18 +3,23 @@
 
 <head>
 
+    <!-- javascript -->
+    <script src="script.js"></script>
+
+
     <!-- css file -->
     <link rel="stylesheet" href="styles.css">
+
     <!-- bootstrap -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sup Fool</title>
 </head>
 
 <body>
-    
+
     <!-- song bpm input -->
     <div class="song_bpm_div">
         <h1>Enter Your Songs BPM</h1>
@@ -29,12 +34,12 @@
 
     <!-- run it button -->
     <div class="run_it_button">
-        <button class="btn btn-primary">Run it!</button>
+        <button onclick="get_play_rate()" class="btn btn-primary">Run it!</button>
     </div>
 
     <!-- results -->
     <div>
-        <h1 id="results">show results here</h1>
+        <h1 id="results"></h1>
     </div>
 
 </body>
