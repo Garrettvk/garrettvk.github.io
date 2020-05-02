@@ -1,47 +1,360 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" >
 <head>
+  <meta charset="UTF-8">
+  <title>CodePen - Accessible, responsive, mobile-first forms</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
 
-    <!-- javascript -->
-    <script src="script.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
 
-
-    <!-- css file -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- bootstrap -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sup Fool</title>
 </head>
-
 <body>
+<!-- partial:index.partial.html -->
+<div class="main-content container">
+<h1>Accessible, responsive, mobile-first forms</h1>
+<p>This collection of form elements are inspired by Aaron Gustafson's presentation <a href="https://plus.google.com/events/cp3298g4rgcrpaqcgfembbrj0uc" alt"Link to Aaron Gustafson's presentation Falling in love with forms">Falling in Love With Forms</a> that he did for ChaDev. You can view the <a href="http://www.slideshare.net/AaronGustafson/falling-in-love-with-forms-bdconf-2014">related deck on slideshare.</a></p>
+<p>Each element or group of elements is developed using progressive enhancment to be accessible.</p>
+<p>Be sure to read the notes under each field and/or comments in the code for more details on what's been done and why.</p>
+  <p><strong>UPDATE 5/11/2015:</strong> I've created second pen, <a href="https://codepen.io/mdonahue37/pen/ZGQGOR">More responsive, accessible, mobile-first forms</a>, that leverages lessons learn here and applies them to an infield label styled form that has been shown to improve usability of the form.</p>
+<hr />
 
-    <!-- song bpm input -->
-    <div class="song_bpm_div">
-        <h1>Enter Your Songs BPM</h1>
-        <input type="text" name="song_bpm" id="song_bpm_id" class="">
-    </div>
+<!-- Using definition list as a container since I'm defining patterns. Grab the entire <dd>, rename it to whatever containing element you'd like, li, div, whatever. -->
+  <dl id="forms_list">
 
-    <!-- sample bpm input -->
-    <div class="sample_bpm_div">
-        <h1>Enter Your Sample BPM</h1>
-        <input type="text" name="sample_bpm" id="sample_bpm_id" class="">
-    </div>
+<!--Here's a basic accesible label and input pairing. Note the for attribute in the label refers to the id on the input. This pattern is repeated on most pairs -->    
+    <dt><h3>Simple Label & Field group</h3></dt>
+    <dd class="text">
+      <label for="full_name">Full name</label>
+      <input id="full_name" name="full_name" type="text" />
+    </dd>
+ 
+<!-- The aria-describedby attribute points to the additional information provided in the note. -->
+    <dt><h3>Label, Field, & Note group</h3></dt>
+    <dd class="email">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" 
+             aria-describedby="email-note"/>
+      <em id="email-note" class="note">This note is linked to the field and label by the aria-describedby attribute.</em>
+    </dd>
 
-    <!-- run it button -->
-    <div class="run_it_button">
-        <button onclick="get_play_rate()" class="btn btn-primary">Run it!</button>
-    </div>
+<!-- Adding the placeholder attribute to supply users with an example inside the input. A placeholder is not a substitue for a label! -->
+    <dt><h3>Label, Field with placeholder text, Note group</h3></dt>
+    <dd class="url">
+      <label for="url">URL</label>
+      <input id="url" name="url" type="url" 
+             aria-describedby="url-note"
+             placeholder="Enter full url: http://www.example.com"/>
+      <em id="url-note" class="note">This example makes use of the placeholder attribute.</em>
+    </dd>
 
-    <!-- results -->
-    <div>
-        <h1 id="results"></h1>
-    </div>
+<!-- Using HTML5 input type to force phone number keyboard. Actually all the example so far use their respective HTML5 type for easier input on mobile devices -->
+    <dt><h3>Phone number: using HTML5 input types</h3></dt>
+    <dd class="tel">
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" 
+             aria-describedby="phone-note"
+             placeholder="Example: 000-000-0000"/>
+      <em id="phone-note" class="note">Setting the input type to "tel" will bring up the phone virtual keypad. FYI - the email and url fields above are set to their respective types too.</em>
+    </dd>
+ 
+<!-- Using a REGEX numbers only pattern ensures that Safari displays the number keypad. -->
+    <dt><h3>Number input with pattern attribute</h3></dt>
+    <dd class="number">
+      <label for="test">1 + 1 is:</label>
+      <input id="test" name="test" type="number" 
+             pattern="[0-9]*"/>
+      <em id="test-note" class="note">Using a REGEX numbers only pattern ensures that Safari displays the number keypad.</em>
+    </dd>
+ 
+<!-- I'm looking for a solution to display the steps. Also, not sure what's affecting the vertical placement of the label. Also note that I added the value attribiute and set it 1. This forces the slider to the first position rather than the middle. -->
+    <dt><h3>Number range</h3></dt>
+    <dd class="range">
+      <label for="volume">Volume</label>
+      <input id="volume" name="volume" type="range" 
+             min="1" max="11" step="1" value="1" />
+      <em id="volume-note" class="note">Im looking for a solution to display the steps. Any suggestions?</em>
+    </dd>
+ 
+<!-- You could add min="YYY/MM/DD" and max="YYY/MM/DD" attributes to the input element to specify a date range -->
+    <dt><h3>Date selection field</h3></dt>
+    <dd class="date">
+      <label for="date">Pick a date</label>
+      <input id="date" name="date" type="date" />
+      <em id="date-note" class="note">You can add attriubutes define a date range.</em>
+    </dd>
+ 
+<!-- You could add min="YYY/MM/DD" and max="YYY/MM/DD" attributes to the input element to specify a date range -->
+    <dt><h3>Time selection field</h3></dt>
+    <dd class="time">
+      <label for="time">Pick a time</label>
+      <input id="time" name="time" type="time" />
+    </dd>
+ 
+<!-- Browsers are fault tolerant and ignore what they don't understand. In this case we wrap a select element inside a datalist element. Each option elements. Borswer that support datalist ignore the select element tags inside but recognize the option elements. Borwsers that don't support datalist ignore those tags and render the select list. -->
+    <dt><h3>Select Combo box with fallbacks</h3></dt>
+    <dd class="datalist-select">
+      <label for="state" id="state_label">Select a state</label>
+      <datalist id="states">
+        <select name="state" aria-describedby="state_label">
+          <option>Alabama</option> 
+          <option>Alaska</option> 
+          <option>Arizona</option> 
+          <option>Arkansas</option> 
+          <option>California</option> 
+          <option>Colorado</option> 
+          <option>Connecticut</option> 
+          <option>Delaware</option> 
+          <option>Florida</option> 
+          <option>Georgia</option> 
+          <option>Hawaii</option> 
+          <option>Idaho</option> 
+          <option>Illinois</option> 
+          <option>Indiana</option> 
+          <option>Iowa</option> 
+          <option>Kansas</option> 
+          <option>Kentucky</option> 
+          <option>Louisiana</option> 
+          <option>Maine</option> 
+          <option>Maryland</option> 
+          <option>Massachusetts</option> 
+          <option>Michigan</option> 
+          <option>Minnesota</option> 
+          <option>Mississippi</option> 
+          <option>Missouri</option> 
+          <option>Montana Nebraska</option> 
+          <option>Nevada</option> 
+          <option>New Hampshire</option> 
+          <option>New Jersey</option> 
+          <option>New Mexico</option> 
+          <option>New York</option> 
+          <option>North Carolina</option> 
+          <option>North Dakota</option> 
+          <option>Ohio</option> 
+          <option>Oklahoma</option> 
+          <option>Oregon</option> 
+          <option>Pennsylvania</option>
+          <option>Rhode Island</option> 
+          <option>South Carolina</option> 
+          <option>South Dakota</option> 
+          <option>Tennessee</option> 
+          <option>Texas</option> 
+          <option>Utah</option> 
+          <option>Vermont</option> 
+          <option>Virginia</option> 
+          <option>Washington</option> 
+          <option>West Virginia</option> 
+          <option>Wisconsin</option> 
+          <option>Wyoming</option>
+        </select>
+        If other, please specify.
+      </datalist>
+      <input id="state" name="state" list="states" />
+      <em id="state-note" class="note">You can select from the list or type a location in.</em>
+    </dd>
+  
+<!-- This method imploys implicit reference. By putting the input inside the label element the relationship between the label and the imput is impied. There's no need for the "for" attribute. -->
+    <dt><h3>Accessible checkbox</h3></dt>
+    <dd class="checkbox">
+      <label>
+        <input type="checkbox" name="newsletter" value="yes" />
+        Sign up for our news letter.
+      </label>
+    </dd>
+ 
+<!-- Here we'll add in the for attribute to the label so each label references it's specific input within the group. Since this is a list of phone we'll use an unorder list as a container for the group. -->
+    <dt><h3>Accessible checkbox multiple choice</h3></dt>
+    <dd class="grouped checkboxes">
+      <fieldset id="phones">
+        <legend><em>Available smartphones</em> (select a phone)</legend>
+        <ul>
+          <li>
+           <label for="nexus">
+            <input type="checkbox" name="device[]" value="yes" id="nexus" />
+            Nexus
+          </label>
+         </li>
+          <li>
+           <label for="iphone">
+            <input type="checkbox" name="device[]" value="yes" id="iphone" />
+            iPhone
+           </label>           
+          </li>
+          <li>
+            <label for="galaxy">
+              <input type="checkbox" name="device[]" value="yes" id="galaxy" />
+              Galaxy
+            </label>
+          </li>
+          <li>
+            <label for="droid">
+              <input type="checkbox" name="device[]" value="yes" id="droid" />
+              Droid X
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+    </dd>
+ 
+ <!-- wrapping content in a button element to make the entire area clickable. -->
+    <dt><h3>Fancy Button group</h3></dt>
+    <dd class="button">
+      <button id="basic_plan" type="submit" value="basic">
+        <h3>Basic Plan</h3>
+        <p>This is the basic package that includes almost nothing.</p>
+      </button>
+      <button id="pro_plan" type="submit" value="pro">
+        <h3>Pro Plan</h3>
+        <p>This plan will give you more but it'll you cost more.</p>
+      </button>
+      <button id="guru_plan" type="submit" value="guru">
+        <h3>Guru Plan</h3>
+        <p>This is the most expensive plan. Trust us, you want it.</p>
+      </button>
+    </dd>
+    
+<!-- Note that the labels for the select lists have been hidden in an accessible way using the utility class of hidden-label. -->
+    <dt><h3>Related choices</h3></dt>
+    <dd class="grouped meal-dessert-selects">
+      <fieldset id="build-a-meal">
+        <legend><em>Build a meal</em> (select one from each list)</legend>
+        <label for="meal" class="hidden-label">Meal</label>
+        <select name="meal" id="meal">
+          <option value="salad">Chef Salad</option>
+          <option value="fish">Seared Tuna over Rice Pilaf</option>
+          <option value="beef">Prime Rib with Baby Potatos</option>
+          <option value="pasta">Penne with Alla Vodka Sauce</option>
+        </select>
+        <label for="dessert" class="hidden-label">Dessert</label>
+        <select name="dessert" id="dessert">
+          <option value="pie">Warm Apple Pie with whipped cream</option>
+          <option value="ice-cream">Neopolitan ice cream</option>
+          <option value="cake">6 Layer Chocolate Cake</option>
+          <option value="mousse">Devilish Chocolate Mousse</option>
+        </select>
+      </fieldset>
+    </dd>
 
+<!-- Notice the use of multiple values on the aria-labelledby attribute. Separate the values with a space. -->
+    <dt><h3>Multiple Labels</h3></dt>
+    <dd class="grouped year-month-day-selects">
+    <fieldset>
+      <legend id="select_date"><em>Select a date.</em></legend>
+      <label for="month" id="month_label" class="hidden-label">Month</label>
+      <select name="month" id="month" aria-labelledby="select_date month_label">
+       <option>Januaury</option>
+        <option>February</option>
+        <option>Marh</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+      </select>
+      <label for="day" class="hidden-label" id="day_label">Day</label>
+      <select name="day" id="day" aria-labelledby="select_date day_label">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+        <option>24</option>
+        <option>25</option>
+        <option>26</option>
+        <option>27</option>
+        <option>28</option>
+        <option>29</option>
+        <option>30</option>
+        <option>31</option>
+      </select>
+      <label for="year" class="hidden-label" id="year_label">Year</label>
+      <select name="year" id="year" aria-labelledby="select_date year_label">
+        <option>2014</option>
+        <option>2015</option>
+        <option>2016</option>
+        <option>2017</option>
+        <option>2018</option>
+        <option>2019</option>
+        <option>2020</option>
+      </select>
+    </fieldset>
+      <em id="select-date-note" class="note no-left-margin">A nice progressive enhancement to this might be to have the current date preselected in some cases. Anyone have a script they could share?</em>
+    </dd>
+
+<!--  -->
+    <dt><h3>Accessible table</h3></dt>
+    <dd class="table">
+      <table>
+        <thead>
+          <tr>
+            <td></td>
+            <th id="value-1">Poor</th>
+            <th id="value-2">Fair</th>
+            <th id="value-3">Good</th>
+            <th id="value-4">Great</th>
+            <th id="value-5">Excellent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th id="experience">How would you rate your experience with this accessible table?</th>
+            <td><input type="radio" name="experience" value="1" aria-labelledby="experience vaue-1"></td>
+            <td><input type="radio" name="experience" value="2" aria-labelledby="experience vaue-2"></td>
+            <td><input type="radio" name="experience" value="3" aria-labelledby="experience vaue-3"></td>
+            <td><input type="radio" name="experience" value="4" aria-labelledby="experience vaue-4"></td>
+            <td><input type="radio" name="experience" value="5" aria-labelledby="experience vaue-5"></td>
+          </tr>
+        </tbody>
+      </table>
+    </dd>
+
+<!--  -->
+    <dt><h3>Required fields</h3></dt>
+    <dd class="grouped meal-dessert-selects">
+      still to come.
+    </dd>
+
+<!-- Using a REGEX numbers only pattern ensures that Safari displays the number keypad. -->
+    <dt><h3>Phone Number input with validation</h3></dt>
+    <dd class="tel">
+      <label for="phone">Phone Number</label>
+      <input id="phone" name="phone" type="tel" 
+             placeholder="000-000-0000"
+             pattern="\d{3}[-]\d3{3}[-]\d{4}" required/>
+      <em id="phone-note" class="note">Still working on this one to get validation correct. I'm no regex guru, so if you happen to be go at that I'd appreciate confirmation that I have it written correctly for the placeholder provided.</em>
+    </dd>
+ 
+<!--  -->
+    <dt><h3>Custom Error Messages</h3></dt>
+    <dd class="grouped meal-dessert-selects">
+      still to come.
+    </dd>
+
+  </dl>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 </body>
-
 </html>
