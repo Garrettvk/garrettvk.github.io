@@ -2,46 +2,62 @@
 <html lang="en">
 
 <head>
-
-    <!-- javascript -->
-    <script src="script.js"></script>
-
-
-    <!-- css file -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- bootstrap -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sup Fool</title>
+  <meta charset="UTF-8">
+  <title>Sample Helper</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+  <!-- partial:index.partial.html -->
+  <div class="main-content container">
 
-    <!-- song bpm input -->
-    <div class="song_bpm_div">
-        <h1>Enter Your Songs BPM</h1>
-        <input type="text" name="song_bpm" id="song_bpm_id" class="">
-    </div>
+    <!-- Notice the use of multiple values on the aria-labelledby attribute. Separate the values with a space. -->
+    <dt>
+      <h3>Song</h3>
+    </dt>
+    <dd class="grouped year-month-day-selects">
+      <fieldset>
+        <legend id="select_date"><em>Select a Key and BPM.</em></legend>
+        <label for="month" id="month_label" class="hidden-label">Month</label>
+        <select name="month" id="month" aria-labelledby="select_date month_label">
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+        <label for="day" class="hidden-label" id="day_label">Day</label>
+        <select name="day" id="day" aria-labelledby="select_date day_label">
+          <option>Major</option>
+          <option>Minor</option>
+        </select>
+        <label for="year" class="hidden-label" id="year_label">Year</label>
+        <input id="test" name="test" type="number" pattern="[0-9]*" />
+      </fieldset>
+    </dd>
 
-    <!-- sample bpm input -->
-    <div class="sample_bpm_div">
-        <h1>Enter Your Sample BPM</h1>
-        <input type="text" name="sample_bpm" id="sample_bpm_id" class="">
-    </div>
+    <dt>
+      <h3>Sample</h3>
+    </dt>
+    <dd class="grouped year-month-day-selects">
+      <fieldset>
+        <legend id="select_date"><em>Select a Key and BPM.</em></legend>
+        <label for="month" id="month_label" class="hidden-label">Month</label>
+        <select name="month" id="month" aria-labelledby="select_date month_label">
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+        <label for="day" class="hidden-label" id="day_label">Day</label>
+        <select name="day" id="day" aria-labelledby="select_date day_label">
+          <option>Major</option>
+          <option>Minor</option>
+        </select>
+        <label for="year" class="hidden-label" id="year_label">Year</label>
+        <input id="test" name="test" type="number" pattern="[0-9]*" />
+      </fieldset>
+    </dd>
 
-    <!-- run it button -->
-    <div class="run_it_button">
-        <button onclick="get_play_rate()" class="btn btn-primary">Run it!</button>
-    </div>
-
-    <!-- results -->
-    <div>
-        <h1 id="results"></h1>
-    </div>
-
+  </div>
+  <!-- partial -->
 </body>
 
 </html>
