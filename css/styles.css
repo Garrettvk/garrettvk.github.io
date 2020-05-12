@@ -100,7 +100,7 @@ fieldset {
 }
 
 /* screen sizes 750px and lower */
-@media(max-width: 750px) {
+@media(min-width: 750px) {
   body {
     background-color: aliceblue;
   }
