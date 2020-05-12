@@ -99,8 +99,8 @@ fieldset {
   flex-direction: row; /* all the inputs are organized in rows */
 }
 
-/* screen sizes 500px and lower */
-@media(max-width: 500px) {
+/* screen sizes 750px and lower */
+@media(max-width: 750px) {
   body {
     background-color: aliceblue;
   }
