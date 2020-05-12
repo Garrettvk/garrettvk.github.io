@@ -98,3 +98,10 @@ fieldset {
   border: var(--border-width) solid #adff2f;
   flex-direction: row; /* all the inputs are organized in rows */
 }
+
+/* screen sizes 500px and lower */
+@media(max-width: 500px) {
+  body {
+    background-color: aliceblue;
+  }
+}
