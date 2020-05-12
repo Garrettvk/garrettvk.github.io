@@ -31,7 +31,7 @@ main,
 
 body {
   border: var(--border-width) solid #fff;
-  background-color: #02203c;
+  background-color: red;
   box-sizing: border-box;
   justify-content: center;
   height: 98vh;
