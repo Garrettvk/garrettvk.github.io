@@ -1,0 +1,3 @@
+the design is really small on my phone
+
+I should add a media query to make everything bigger on a screen the size of my phone
