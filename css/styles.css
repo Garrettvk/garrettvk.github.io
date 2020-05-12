@@ -1,0 +1,100 @@
+:root {
+  /* --border-width: 2px; */
+}
+
+body,
+main,
+.song-info-div,
+.song-input,
+.sample-input {
+  display: flex; /* create flexbox */
+}
+
+body,
+main,
+.song-info-div {
+  flex-direction: column; /* display flex items as columns */
+}
+
+body,
+.song-info-div,
+.song-input,
+.sample-input {
+  align-items: center; /* Center Vertically */
+}
+
+main,
+.song-input,
+.sample-input {
+  justify-content: space-evenly; /* Center Horizontally */
+}
+
+body {
+  border: var(--border-width) solid #fff;
+  background-color: #02203c;
+  box-sizing: border-box;
+  justify-content: center;
+  height: 98vh;
+}
+
+main {
+  border: var(--border-width) solid #ff69b4;
+  min-width: 50vw;
+  min-height: 70vh;
+}
+
+/* main class for labels */
+.song-h3,
+.sample-h3,
+.result-h3 {
+  border: var(--border-width) solid red;
+  background-color: #16314c;
+  color: #fff;
+  border-radius: 6px 6px 0 0;
+  margin: 0;
+  padding: 16px;
+}
+
+/* sample label color */
+.sample-h3 {
+  background-color: #7092bea4;
+}
+
+/* result label color */
+.result-h3 {
+  background-color: #834e85;
+}
+
+.song-info-div {
+  justify-content: center;
+  border: var(--border-width) solid orange;
+  background-color: #001932;
+  border-radius: 0 0 6px 6px;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 1em;
+  padding: 16px;
+}
+
+legend {
+  border: var(--border-width) solid #ff0;
+  font-weight: 700;
+  font-size: 1.25em;
+  font-style: normal;
+}
+
+fieldset {
+  border: var(--border-width) solid teal;
+  border: 0;
+  margin: 0;
+  padding: 12px 0 0;
+}
+
+.song-bpm-input {
+  width: 40px; /* width of bpm input */
+}
+
+.input-div {
+  border: var(--border-width) solid #adff2f;
+  flex-direction: row; /* all the inputs are organized in rows */
+}
