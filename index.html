@@ -1,94 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1.0">
-  <title>Sample Helper</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js"> </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
-  <!-- main content -->
-  <main>
-
-    <!-- song -->
-    <div class="song-div">
-      <h3 class="song-h3">Song</h3>
-      <div class="song-info-div">
-        <fieldset>
-          <legend>Enter Key and BPM</legend>
-          <div class="input-div">
-            <select name="song-key" class="song-key-select">
-              <option value="C">C</option>
-              <option value="C#/Db">C#/Db</option>
-              <option value="D">D</option>
-              <option value="D#/Eb">D#/Eb</option>
-              <option value="E">E</option>
-              <option value="F">F</option>
-              <option value="F#/Gb">F#/Gb</option>
-              <option value="G">G</option>
-              <option value="G#/Ab">G#/Ab</option>
-              <option value="A">A</option>
-              <option value="A#/Bb">A#/Bb</option>
-              <option value="B">B</option>
-            </select>
-            <select name="song-mode">
-              <option>Major</option>
-              <option>Minor</option>
-            </select>
-            <input class="song-bpm-input" name="song-bpm" type="number" pattern="[0-9]" min="1" max="999"
-              onkeydown="limit(this);" onkeyup="limit(this);">
-          </div>
-        </fieldset>
-      </div>
+    <div class="container">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
-
-    <!-- sample -->
-    <div class="sample-div">
-      <h3 class="sample-h3">Sample</h3>
-      <div class="song-info-div">
-        <fieldset>
-          <legend>Enter Key and BPM</legend>
-          <div class="input-div">
-
-            <select name="song-key" class="song-key-select">
-              <option value="C">C</option>
-              <option value="C#/Db">C#/Db</option>
-              <option value="D">D</option>
-              <option value="D#/Eb">D#/Eb</option>
-              <option value="E">E</option>
-              <option value="F">F</option>
-              <option value="F#/Gb">F#/Gb</option>
-              <option value="G">G</option>
-              <option value="G#/Ab">G#/Ab</option>
-              <option value="A">A</option>
-              <option value="A#/Bb">A#/Bb</option>
-              <option value="B">B</option>
-            </select>
-            <select name="song-mode">
-              <option>Major</option>
-              <option>Minor</option>
-            </select>
-            <input class="song-bpm-input" name="song-bpm" type="number" pattern="[0-9]" min="1" max="999"
-              onkeydown="limit(this);" onkeyup="limit(this);">
-          </div>
-        </fieldset>
-      </div>
-    </div>
-
-    <!-- result -->
-    <div class="result-div">
-      <h3 class="result-h3">Result</h3>
-      <div class="song-info-div">
-        Enter info for your song and the sample you want to use.
-      </div>
-    </div>
-
-  </main>
-
+    
 </body>
-
 </html>
