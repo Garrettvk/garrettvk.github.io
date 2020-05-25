@@ -1,23 +1,22 @@
 :root {
-  --border-width: 20px;
+  --border-width: 2px;
 }
 
 body {
   background-color: black;
+  align-items: center;
+  text-align: center;
 }
 
 .container {
   border: var(--border-width) solid orange;
   display: flex;
   flex-direction: column;
-  height: 97vh;
+  height: 90vh;
   padding: 2vw;
-
 }
 
 .container div {
   border: var(--border-width) solid pink;
   height: 33vh;
-  
-  
 }
